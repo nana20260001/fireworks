@@ -3,32 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>礼花筒批发商城 - 像淘宝一样的购物体验</title>
+<title>Kaleido - 梦幻万花筒艺术馆</title>
 <style>
-  /* --- 全局基础（淘宝风：浅灰背景，红色主色调） --- */
+  /* --- 全局基础（高级艺术电商风） --- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif; background: #f4f4f4; color: #333; font-size: 14px; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif; background: #f8f9fa; color: #333; font-size: 14px; }
   a { text-decoration: none; color: inherit; }
   ul { list-style: none; }
 
   /* --- 顶部搜索与导航区 --- */
-  .top-header { background: #fff; padding: 20px 0; border-bottom: 2px solid #ff5000; }
+  .top-header { background: #fff; padding: 20px 0; border-bottom: 2px solid #6a1b9a; }
   .top-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
-  .logo { font-size: 32px; font-weight: 900; color: #ff5000; font-style: italic; letter-spacing: 2px; }
+  .logo { font-size: 32px; font-weight: 900; color: #6a1b9a; font-style: italic; letter-spacing: 2px; }
   
-  .search-box { display: flex; width: 600px; border: 2px solid #ff5000; border-radius: 40px; overflow: hidden; }
+  .search-box { display: flex; width: 600px; border: 2px solid #6a1b9a; border-radius: 40px; overflow: hidden; }
   .search-box input { flex: 1; border: none; padding: 10px 20px; outline: none; font-size: 15px; }
-  .search-box button { background: #ff5000; color: #fff; border: none; padding: 0 30px; font-size: 16px; font-weight: bold; cursor: pointer; }
-  .search-box button:hover { background: #e64600; }
+  .search-box button { background: #6a1b9a; color: #fff; border: none; padding: 0 30px; font-size: 16px; font-weight: bold; cursor: pointer; }
+  .search-box button:hover { background: #4a148c; }
 
   .user-actions { display: flex; gap: 20px; font-size: 14px; color: #666; }
-  .user-actions a:hover { color: #ff5000; }
+  .user-actions a:hover { color: #6a1b9a; }
 
   /* --- 分类导航条 --- */
   .nav-bar { background: #fff; border-bottom: 1px solid #eee; }
   .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; padding: 12px 20px; font-size: 16px; font-weight: bold; }
   .nav-inner a { color: #333; transition: color 0.3s; }
-  .nav-inner a:hover, .nav-inner a.active { color: #ff5000; }
+  .nav-inner a:hover, .nav-inner a.active { color: #6a1b9a; }
 
   /* --- 首屏 Banner 与分类侧边栏 --- */
   .hero-section { max-width: 1200px; margin: 15px auto; display: flex; gap: 15px; padding: 0 20px; height: 400px; }
@@ -36,41 +36,43 @@
   /* 侧边分类 */
   .category-sidebar { width: 220px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px 0; display: flex; flex-direction: column; }
   .category-sidebar li { padding: 10px 20px; cursor: pointer; transition: background 0.2s, color 0.2s; }
-  .category-sidebar li:hover { background: #fff4f0; color: #ff5000; font-weight: bold; }
+  .category-sidebar li:hover { background: #f3e5f5; color: #6a1b9a; font-weight: bold; }
   .category-sidebar li span { float: right; color: #ccc; font-weight: normal; font-size: 12px; }
 
   /* 轮播图 */
-  .carousel { flex: 1; position: relative; border-radius: 8px; overflow: hidden; background: #000; }
+  .carousel { flex: 1; position: relative; border-radius: 8px; overflow: hidden; background: #1a1a1a; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s; display: flex; align-items: center; justify-content: center; }
   .slide.active { opacity: 1; z-index: 1; }
-  .slide img { width: 100%; height: 100%; object-fit: cover; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
   .slide-content { position: absolute; left: 10%; color: #fff; z-index: 2; }
-  .slide-content h2 { font-size: 40px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-  .slide-content p { font-size: 18px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+  .slide-content h2 { font-size: 40px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+  .slide-content p { font-size: 18px; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
   
   .dots { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
   .dots span { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; }
-  .dots span.active { background: #ff5000; }
+  .dots span.active { background: #ba68c8; }
 
   /* --- 倒计时促销条 --- */
-  .promo-bar { max-width: 1200px; margin: 0 auto 20px; background: linear-gradient(90deg, #ff5000, #ff8c00); color: #fff; padding: 15px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+  .promo-bar { max-width: 1200px; margin: 0 auto 20px; background: linear-gradient(90deg, #6a1b9a, #ab47bc); color: #fff; padding: 15px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(106,27,154,0.2); }
   .promo-bar h3 { font-size: 20px; }
-  .countdown { font-size: 18px; font-weight: bold; background: #000; padding: 5px 15px; border-radius: 20px; }
+  .countdown { font-size: 18px; font-weight: bold; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; }
 
   /* --- 商品瀑布流展示区 --- */
   .product-section { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; }
-  .product-section-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-  .product-section-title::before { content: ""; width: 6px; height: 24px; background: #ff5000; border-radius: 3px; }
+  .product-section-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #4a148c; }
+  .product-section-title::before { content: ""; width: 6px; height: 24px; background: #6a1b9a; border-radius: 3px; }
 
   .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
   
   .item-card { background: #fff; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; border: 1px solid transparent; }
-  .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #ff5000; }
+  .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(106,27,154,0.15); border-color: #ba68c8; }
   
-  .item-img { width: 100%; height: 260px; object-fit: cover; background: #f9f9f9; }
+  .item-img-box { position: relative; height: 260px; background: #f9f9f9; }
+  .item-img { width: 100%; height: 100%; object-fit: cover; }
+  .tag { position: absolute; top: 10px; left: 10px; background: #e91e63; color: #fff; font-size: 12px; padding: 2px 8px; border-radius: 4px; }
   
   .item-info { padding: 15px; }
-  .item-price { color: #ff5000; font-size: 22px; font-weight: bold; display: flex; align-items: baseline; }
+  .item-price { color: #e91e63; font-size: 22px; font-weight: bold; display: flex; align-items: baseline; }
   .item-price span { font-size: 14px; font-weight: normal; margin-left: 5px; }
   .item-title { font-size: 14px; color: #333; margin: 8px 0; line-height: 1.4; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .item-meta { display: flex; justify-content: space-between; font-size: 12px; color: #999; margin-top: 10px; }
@@ -80,7 +82,7 @@
   .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
   .footer-col h4 { color: #fff; font-size: 14px; margin-bottom: 10px; font-weight: 600; }
   .contact-list li { margin-bottom: 6px; display: flex; align-items: center; gap: 8px; font-size: 12px; }
-  .contact-list a:hover { color: #ff5000; }
+  .contact-list a:hover { color: #ba68c8; }
   .qr-placeholder { width: 60px; height: 60px; background: #fff; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 10px; overflow: hidden; }
   .qr-placeholder img { width: 100%; height: 100%; object-fit: cover; }
   .footer-bottom { text-align: center; padding-top: 15px; margin-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #666; }
@@ -97,7 +99,7 @@
     .hero-section { flex-direction: column; height: auto; }
     .category-sidebar { width: 100%; flex-direction: row; overflow-x: auto; white-space: nowrap; padding: 0; }
     .category-sidebar li { padding: 15px; border-bottom: 2px solid transparent; }
-    .category-sidebar li:hover { border-bottom-color: #ff5000; background: transparent; }
+    .category-sidebar li:hover { border-bottom-color: #6a1b9a; background: transparent; }
     .category-sidebar li span { display: none; }
     .carousel { height: 200px; }
     .slide-content h2 { font-size: 24px; }
@@ -110,9 +112,9 @@
 <!-- 顶部搜索与导航区 -->
 <header class="top-header">
   <div class="top-inner">
-    <div class="logo">Fireworks</div>
+    <div class="logo">Kaleido.</div>
     <div class="search-box">
-      <input type="text" placeholder="搜索：礼花筒、婚礼喷花、生日彩带...">
+      <input type="text" placeholder="搜索：黄铜万花筒、星空投影、儿童益智玩具...">
       <button>搜 索</button>
     </div>
     <div class="user-actions">
@@ -127,11 +129,11 @@
 <div class="nav-bar">
   <div class="nav-inner">
     <a href="#" class="active">首页</a>
-    <a href="#">生日派对礼花</a>
-    <a href="#">婚礼庆典礼花</a>
-    <a href="#">节日手持喷花</a>
-    <a href="#">企业定制礼炮</a>
-    <a href="#">环保阻燃系列</a>
+    <a href="#">经典黄铜系列</a>
+    <a href="#">星空投影万花筒</a>
+    <a href="#">儿童益智玩具</a>
+    <a href="#">DIY 拼装定制</a>
+    <a href="#">高端节日礼盒</a>
   </div>
 </div>
 
@@ -139,29 +141,29 @@
 <div class="hero-section">
   <!-- 左侧分类 -->
   <ul class="category-sidebar">
-    <li>生日派对系列 <span> > </span></li>
-    <li>浪漫婚礼系列 <span> > </span></li>
-    <li>节日庆典喷花 <span> > </span></li>
-    <li>高端定制礼炮 <span> > </span></li>
-    <li>网红拍照道具 <span> > </span></li>
-    <li>儿童安全礼花 <span> > </span></li>
-    <li>舞台特效礼花 <span> > </span></li>
+    <li>经典黄铜万花筒 <span> > </span></li>
+    <li>星空投影万花筒 <span> > </span></li>
+    <li>儿童益智系列 <span> > </span></li>
+    <li>DIY 手工拼装 <span> > </span></li>
+    <li>高端定制礼盒 <span> > </span></li>
+    <li>水晶玻璃折射款 <span> > </span></li>
+    <li>木制复古系列 <span> > </span></li>
   </ul>
 
-  <!-- 轮播大图 -->
+  <!-- 轮播大图 (这里建议换成你万花筒内部绚丽的微距图案，或者测试视频截帧) -->
   <div class="carousel">
     <div class="slide active">
-      <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="派对礼花">
+      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="光影">
       <div class="slide-content">
-        <h2>点亮你的高光时刻</h2>
-        <p>婚礼、生日、年会必备的绚烂礼花筒，全场包邮！</p>
+        <h2>一花一世界，一筒一星空</h2>
+        <p>转动指尖，探索无尽的光影与几何之美。</p>
       </div>
     </div>
     <div class="slide">
-      <img src="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="彩带礼花">
+      <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="色彩">
       <div class="slide-content">
-        <h2>环保阻燃 安心狂欢</h2>
-        <p>纯天然纸片，好清理不留痕，安心的派对选择。</p>
+        <h2>治愈系色彩，梦幻礼盒</h2>
+        <p>送给孩子与挚爱的绝佳礼物，开启奇妙视界。</p>
       </div>
     </div>
     <div class="dots" id="dots">
@@ -173,7 +175,7 @@
 
 <!-- 促销倒计时条 -->
 <div class="promo-bar">
-  <h3>🔥 双十一提前购，全场满 200 减 30</h3>
+  <h3>✨ 奇妙视界，下单立减 20 元（满 99 可用）</h3>
   <div class="countdown">距结束：<span id="timer">02:15:30</span></div>
 </div>
 
@@ -184,12 +186,15 @@
     
     <!-- 商品 1 -->
     <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      <div class="item-img-box">
+        <span class="tag">送礼首选</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      </div>
       <div class="item-info">
-        <div class="item-price">¥ 39<span>.00</span></div>
-        <div class="item-title">金色瀑布礼花筒 漫天金片 婚礼派对必备 | 顺丰包邮</div>
+        <div class="item-price">¥ 128<span>.00</span></div>
+        <div class="item-title">黄铜复古经典万花筒 纯手工打磨 精美礼盒装 | 顺丰包邮</div>
         <div class="item-meta">
-          <span>销量 1.2万+</span>
+          <span>销量 3000+</span>
           <span>好评率 99%</span>
         </div>
       </div>
@@ -197,10 +202,13 @@
 
     <!-- 商品 2 -->
     <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      <div class="item-img-box">
+        <span class="tag">黑科技</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      </div>
       <div class="item-info">
-        <div class="item-price">¥ 45<span>.00</span></div>
-        <div class="item-title">玫瑰花瓣礼花筒 真花质感 浪漫求婚婚礼首选 | 极速发货</div>
+        <div class="item-price">¥ 89<span>.00</span></div>
+        <div class="item-title">星空投影万花筒 可调焦 极光星空夜灯 | 浪漫礼物</div>
         <div class="item-meta">
           <span>销量 8000+</span>
           <span>好评率 98%</span>
@@ -210,10 +218,13 @@
 
     <!-- 商品 3 -->
     <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1498931299472-f7a63a5a1cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      <div class="item-img-box">
+        <span class="tag">益智玩具</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+      </div>
       <div class="item-info">
-        <div class="item-price">¥ 25<span>.00</span></div>
-        <div class="item-title">彩色纸片礼花筒 儿童宝宝宴安全阻燃 拍照氛围道具</div>
+        <div class="item-price">¥ 39<span>.00</span></div>
+        <div class="item-title">儿童科学探索万花筒 环保无毒材质 幼儿园奖品</div>
         <div class="item-meta">
           <span>销量 2万+</span>
           <span>好评率 99.5%</span>
@@ -223,65 +234,16 @@
 
     <!-- 商品 4 -->
     <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
-      <div class="item-info">
-        <div class="item-price">¥ 88<span>.00</span></div>
-        <div class="item-title">高端企业定制礼花 可印企业Logo 年会发布会必备</div>
-        <div class="item-meta">
-          <span>销量 500+</span>
-          <span>好评率 100%</span>
-        </div>
+      <div class="item-img-box">
+        <span class="tag">DIY定制</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
       </div>
-    </div>
-
-    <!-- 商品 5 -->
-    <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
-      <div class="item-info">
-        <div class="item-price">¥ 19<span>.90</span></div>
-        <div class="item-title">满天星细彩带喷花 气氛爆棚 派对狂欢夜店舞台特效</div>
-        <div class="item-meta">
-          <span>销量 5万+</span>
-          <span>好评率 97%</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 商品 6 -->
-    <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1467810563316-b5476525c0f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
-      <div class="item-info">
-        <div class="item-price">¥ 55<span>.00</span></div>
-        <div class="item-title">大容量礼花枪 40cm加长款 礼盒装 婚庆接亲伴手礼</div>
-        <div class="item-meta">
-          <span>销量 3000+</span>
-          <span>好评率 98.5%</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 商品 7 -->
-    <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
       <div class="item-info">
         <div class="item-price">¥ 68<span>.00</span></div>
-        <div class="item-title">金属质感彩带礼炮 高端奢华 晚宴庆典开场</div>
+        <div class="item-title">木制手工拼装万花筒 亲手制作自己的光影魔术</div>
         <div class="item-meta">
           <span>销量 1000+</span>
-          <span>好评率 99%</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 商品 8 -->
-    <div class="item-card">
-      <img class="item-img" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
-      <div class="item-info">
-        <div class="item-price">¥ 29<span>.90</span></div>
-        <div class="item-title">迷你手持礼花筒 网红拍照道具 闺蜜聚会气氛神器</div>
-        <div class="item-meta">
-          <span>销量 8万+</span>
-          <span>好评率 99.9%</span>
+          <span>好评率 100%</span>
         </div>
       </div>
     </div>
@@ -293,8 +255,8 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>Fireworks 礼花商城</h4>
-      <p>点亮每一个精彩瞬间。</p>
+      <h4>Kaleido 万花筒艺术馆</h4>
+      <p>探索光影与几何的无限可能。</p>
     </div>
     <div class="footer-col">
       <h4>联系我们</h4>
@@ -323,7 +285,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Fireworks 礼花商城. All rights reserved. 
+    © 2026 Kaleido. All rights reserved. 
   </div>
 </footer>
 
@@ -333,7 +295,6 @@
 </a>
 
 <script>
-  // 轮播逻辑
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.dots span');
@@ -354,7 +315,6 @@
 
   setInterval(() => { changeSlide(currentSlide + 1); }, 4000);
 
-  // 倒计时逻辑 (模拟)
   let time = 2 * 3600 + 15 * 60 + 30;
   setInterval(() => {
     if (time > 0) {
