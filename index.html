@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaleido - 梦幻万花筒艺术馆</title>
+<title>Kaleido - Premium Kaleidoscopes</title>
 <style>
-  /* --- 全局基础（高级艺术电商风） --- */
+  /* --- Global Styles (English E-commerce) --- */
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif; background: #f8f9fa; color: #333; font-size: 14px; }
+  body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; background: #f8f9fa; color: #333; font-size: 14px; }
   a { text-decoration: none; color: inherit; }
   ul { list-style: none; }
 
-  /* --- 顶部搜索与导航区 --- */
+  /* --- Header & Search --- */
   .top-header { background: #fff; padding: 20px 0; border-bottom: 2px solid #6a1b9a; }
   .top-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
   .logo { font-size: 32px; font-weight: 900; color: #6a1b9a; font-style: italic; letter-spacing: 2px; }
@@ -21,25 +21,23 @@
   .search-box button { background: #6a1b9a; color: #fff; border: none; padding: 0 30px; font-size: 16px; font-weight: bold; cursor: pointer; }
   .search-box button:hover { background: #4a148c; }
 
-  .user-actions { display: flex; gap: 20px; font-size: 14px; color: #666; }
+  .user-actions { display: flex; gap: 20px; font-size: 14px; color: #666; font-weight: 500; }
   .user-actions a:hover { color: #6a1b9a; }
 
-  /* --- 分类导航条 --- */
+  /* --- Navbar --- */
   .nav-bar { background: #fff; border-bottom: 1px solid #eee; }
   .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; padding: 12px 20px; font-size: 16px; font-weight: bold; }
   .nav-inner a { color: #333; transition: color 0.3s; }
   .nav-inner a:hover, .nav-inner a.active { color: #6a1b9a; }
 
-  /* --- 首屏 Banner 与分类侧边栏 --- */
+  /* --- Hero Section --- */
   .hero-section { max-width: 1200px; margin: 15px auto; display: flex; gap: 15px; padding: 0 20px; height: 400px; }
   
-  /* 侧边分类 */
   .category-sidebar { width: 220px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px 0; display: flex; flex-direction: column; }
-  .category-sidebar li { padding: 10px 20px; cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .category-sidebar li { padding: 10px 20px; cursor: pointer; transition: background 0.2s, color 0.2s; font-size: 13px; }
   .category-sidebar li:hover { background: #f3e5f5; color: #6a1b9a; font-weight: bold; }
   .category-sidebar li span { float: right; color: #ccc; font-weight: normal; font-size: 12px; }
 
-  /* 轮播图 */
   .carousel { flex: 1; position: relative; border-radius: 8px; overflow: hidden; background: #1a1a1a; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s; display: flex; align-items: center; justify-content: center; }
   .slide.active { opacity: 1; z-index: 1; }
@@ -52,32 +50,35 @@
   .dots span { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; }
   .dots span.active { background: #ba68c8; }
 
-  /* --- 倒计时促销条 --- */
+  /* --- Promo Bar --- */
   .promo-bar { max-width: 1200px; margin: 0 auto 20px; background: linear-gradient(90deg, #6a1b9a, #ab47bc); color: #fff; padding: 15px 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 10px rgba(106,27,154,0.2); }
-  .promo-bar h3 { font-size: 20px; }
-  .countdown { font-size: 18px; font-weight: bold; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; }
+  .promo-bar h3 { font-size: 18px; }
+  .countdown { font-size: 16px; font-weight: bold; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; }
 
-  /* --- 商品瀑布流展示区 --- */
+  /* --- Product Section --- */
   .product-section { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; }
   .product-section-title { font-size: 24px; font-weight: bold; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: #4a148c; }
   .product-section-title::before { content: ""; width: 6px; height: 24px; background: #6a1b9a; border-radius: 3px; }
 
   .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
   
-  .item-card { background: #fff; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; border: 1px solid transparent; }
+  .item-card { background: #fff; border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid transparent; display: flex; flex-direction: column; }
   .item-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(106,27,154,0.15); border-color: #ba68c8; }
   
   .item-img-box { position: relative; height: 260px; background: #f9f9f9; }
   .item-img { width: 100%; height: 100%; object-fit: cover; }
   .tag { position: absolute; top: 10px; left: 10px; background: #e91e63; color: #fff; font-size: 12px; padding: 2px 8px; border-radius: 4px; }
   
-  .item-info { padding: 15px; }
-  .item-price { color: #e91e63; font-size: 22px; font-weight: bold; display: flex; align-items: baseline; }
-  .item-price span { font-size: 14px; font-weight: normal; margin-left: 5px; }
-  .item-title { font-size: 14px; color: #333; margin: 8px 0; line-height: 1.4; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-  .item-meta { display: flex; justify-content: space-between; font-size: 12px; color: #999; margin-top: 10px; }
+  .item-info { padding: 15px; display: flex; flex-direction: column; flex: 1; }
+  .item-price { color: #e91e63; font-size: 22px; font-weight: bold; }
+  .item-title { font-size: 15px; color: #333; margin: 8px 0; line-height: 1.4; height: 42px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .item-meta { display: flex; justify-content: space-between; font-size: 12px; color: #999; margin-bottom: 15px; margin-top: auto; }
+  
+  /* Stripe Buy Button Style */
+  .buy-btn { display: block; width: 100%; text-align: center; background: #6a1b9a; color: #fff; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+  .buy-btn:hover { background: #4a148c; }
 
-  /* --- 紧凑版底部 --- */
+  /* --- Footer --- */
   .footer { background: #1a1a1a; color: #b0b0b0; padding: 30px 20px 15px; font-size: 13px; margin-top: 40px; }
   .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
   .footer-col h4 { color: #fff; font-size: 14px; margin-bottom: 10px; font-weight: 600; }
@@ -87,12 +88,11 @@
   .qr-placeholder img { width: 100%; height: 100%; object-fit: cover; }
   .footer-bottom { text-align: center; padding-top: 15px; margin-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #666; }
 
-  /* 悬浮客服 */
+  /* Floating WhatsApp */
   .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 100; transition: transform 0.2s; }
   .whatsapp-float:hover { transform: scale(1.1); }
   .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 
-  /* 移动端适配 */
   @media (max-width: 768px) {
     .top-inner { flex-direction: column; gap: 15px; }
     .search-box { width: 100%; }
@@ -109,61 +109,59 @@
 </head>
 <body>
 
-<!-- 顶部搜索与导航区 -->
+<!-- Header -->
 <header class="top-header">
   <div class="top-inner">
     <div class="logo">Kaleido.</div>
     <div class="search-box">
-      <input type="text" placeholder="搜索：黄铜万花筒、星空投影、儿童益智玩具...">
-      <button>搜 索</button>
+      <input type="text" placeholder="Search: Brass Kaleidoscope, Star Projector...">
+      <button>Search</button>
     </div>
     <div class="user-actions">
-      <a href="#">你好，请登录</a>
-      <a href="#">我的订单</a>
-      <a href="#">购物车 (0)</a>
+      <a href="#">Sign In</a>
+      <a href="#">Orders</a>
+      <a href="#">Cart (0)</a>
     </div>
   </div>
 </header>
 
-<!-- 分类导航条 -->
+<!-- Navbar -->
 <div class="nav-bar">
   <div class="nav-inner">
-    <a href="#" class="active">首页</a>
-    <a href="#">经典黄铜系列</a>
-    <a href="#">星空投影万花筒</a>
-    <a href="#">儿童益智玩具</a>
-    <a href="#">DIY 拼装定制</a>
-    <a href="#">高端节日礼盒</a>
+    <a href="#" class="active">Home</a>
+    <a href="#">Brass Collection</a>
+    <a href="#">Star Projector</a>
+    <a href="#">Kids & Educational</a>
+    <a href="#">DIY Kits</a>
+    <a href="#">Gift Boxes</a>
   </div>
 </div>
 
-<!-- 首屏大图与侧边栏 -->
+<!-- Hero Section -->
 <div class="hero-section">
-  <!-- 左侧分类 -->
   <ul class="category-sidebar">
-    <li>经典黄铜万花筒 <span> > </span></li>
-    <li>星空投影万花筒 <span> > </span></li>
-    <li>儿童益智系列 <span> > </span></li>
-    <li>DIY 手工拼装 <span> > </span></li>
-    <li>高端定制礼盒 <span> > </span></li>
-    <li>水晶玻璃折射款 <span> > </span></li>
-    <li>木制复古系列 <span> > </span></li>
+    <li>Classic Brass <span> > </span></li>
+    <li>Star Projector <span> > </span></li>
+    <li>Kids Educational <span> > </span></li>
+    <li>DIY Wooden Kits <span> > </span></li>
+    <li>Premium Gift Boxes <span> > </span></li>
+    <li>Crystal Glass Refraction <span> > </span></li>
+    <li>Vintage Wooden Series <span> > </span></li>
   </ul>
 
-  <!-- 轮播大图 (这里建议换成你万花筒内部绚丽的微距图案，或者测试视频截帧) -->
   <div class="carousel">
     <div class="slide active">
-      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="光影">
+      <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Lights">
       <div class="slide-content">
-        <h2>一花一世界，一筒一星空</h2>
-        <p>转动指尖，探索无尽的光影与几何之美。</p>
+        <h2>Discover a World in a Tube</h2>
+        <p>Explore the endless beauty of light and geometry with every turn.</p>
       </div>
     </div>
     <div class="slide">
-      <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="色彩">
+      <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Colors">
       <div class="slide-content">
-        <h2>治愈系色彩，梦幻礼盒</h2>
-        <p>送给孩子与挚爱的绝佳礼物，开启奇妙视界。</p>
+        <h2>Perfect Gift for Loved Ones</h2>
+        <p>Bring magic and healing colors to kids and adults alike.</p>
       </div>
     </div>
     <div class="dots" id="dots">
@@ -173,105 +171,109 @@
   </div>
 </div>
 
-<!-- 促销倒计时条 -->
+<!-- Promo Bar -->
 <div class="promo-bar">
-  <h3>✨ 奇妙视界，下单立减 20 元（满 99 可用）</h3>
-  <div class="countdown">距结束：<span id="timer">02:15:30</span></div>
+  <h3>✨ Special Offer: $20 OFF on orders over $99!</h3>
+  <div class="countdown">Ends in: <span id="timer">02:15:30</span></div>
 </div>
 
-<!-- 商品瀑布流展示区 -->
+<!-- Products -->
 <div class="product-section">
-  <div class="product-section-title">猜你喜欢</div>
+  <div class="product-section-title">Recommended for You</div>
   <div class="product-grid">
     
-    <!-- 商品 1 -->
+    <!-- Product 1 -->
     <div class="item-card">
       <div class="item-img-box">
-        <span class="tag">送礼首选</span>
-        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+        <span class="tag">BEST SELLER</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product">
       </div>
       <div class="item-info">
-        <div class="item-price">¥ 128<span>.00</span></div>
-        <div class="item-title">黄铜复古经典万花筒 纯手工打磨 精美礼盒装 | 顺丰包邮</div>
+        <div class="item-price">$ 29.99</div>
+        <div class="item-title">Classic Brass Kaleidoscope - Handcrafted Vintage Gift</div>
         <div class="item-meta">
-          <span>销量 3000+</span>
-          <span>好评率 99%</span>
+          <span>Sold 1.2k+</span>
+          <span>99% Positive</span>
         </div>
+        <!-- 替换 href 为你的 Stripe 购买链接 -->
+        <a href="https://buy.stripe.com/你的Stripe测试或正式链接" target="_blank" class="buy-btn">Buy Now with Card</a>
       </div>
     </div>
 
-    <!-- 商品 2 -->
+    <!-- Product 2 -->
     <div class="item-card">
       <div class="item-img-box">
-        <span class="tag">黑科技</span>
-        <img class="item-img" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+        <span class="tag">NEW</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product">
       </div>
       <div class="item-info">
-        <div class="item-price">¥ 89<span>.00</span></div>
-        <div class="item-title">星空投影万花筒 可调焦 极光星空夜灯 | 浪漫礼物</div>
+        <div class="item-price">$ 19.99</div>
+        <div class="item-title">Star Projector Kaleidoscope - Adjustable Focus Night Light</div>
         <div class="item-meta">
-          <span>销量 8000+</span>
-          <span>好评率 98%</span>
+          <span>Sold 800+</span>
+          <span>98% Positive</span>
         </div>
+        <a href="https://buy.stripe.com/你的Stripe链接" target="_blank" class="buy-btn">Buy Now with Card</a>
       </div>
     </div>
 
-    <!-- 商品 3 -->
+    <!-- Product 3 -->
     <div class="item-card">
       <div class="item-img-box">
-        <span class="tag">益智玩具</span>
-        <img class="item-img" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+        <span class="tag">KIDS FAVORITE</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product">
       </div>
       <div class="item-info">
-        <div class="item-price">¥ 39<span>.00</span></div>
-        <div class="item-title">儿童科学探索万花筒 环保无毒材质 幼儿园奖品</div>
+        <div class="item-price">$ 12.99</div>
+        <div class="item-title">Educational Science Toy Kaleidoscope - Safe for Kids</div>
         <div class="item-meta">
-          <span>销量 2万+</span>
-          <span>好评率 99.5%</span>
+          <span>Sold 5k+</span>
+          <span>99% Positive</span>
         </div>
+        <a href="https://buy.stripe.com/你的Stripe链接" target="_blank" class="buy-btn">Buy Now with Card</a>
       </div>
     </div>
 
-    <!-- 商品 4 -->
+    <!-- Product 4 -->
     <div class="item-card">
       <div class="item-img-box">
-        <span class="tag">DIY定制</span>
-        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="商品">
+        <span class="tag">DIY KIT</span>
+        <img class="item-img" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Product">
       </div>
       <div class="item-info">
-        <div class="item-price">¥ 68<span>.00</span></div>
-        <div class="item-title">木制手工拼装万花筒 亲手制作自己的光影魔术</div>
+        <div class="item-price">$ 24.99</div>
+        <div class="item-title">Wooden DIY Kaleidoscope Kit - Build Your Own Magic</div>
         <div class="item-meta">
-          <span>销量 1000+</span>
-          <span>好评率 100%</span>
+          <span>Sold 300+</span>
+          <span>100% Positive</span>
         </div>
+        <a href="https://buy.stripe.com/你的Stripe链接" target="_blank" class="buy-btn">Buy Now with Card</a>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- 紧凑版底部 -->
+<!-- Footer -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
-      <h4>Kaleido 万花筒艺术馆</h4>
-      <p>探索光影与几何的无限可能。</p>
+      <h4>Kaleido Studio</h4>
+      <p>Explore the infinite possibilities of light.</p>
     </div>
     <div class="footer-col">
-      <h4>联系我们</h4>
+      <h4>Contact Us</h4>
       <ul class="contact-list">
-        <li><a href="tel:+8613800000000">📞 +86 138 0000 0000</a></li>
-        <li><a href="https://wa.me/你的WhatsApp号码" target="_blank">💬 WhatsApp 快速订购</a></li>
+        <li><a href="tel:+1234567890">📞 +1 234 567 890</a></li>
+        <li><a href="https://wa.me/你的WhatsApp号码" target="_blank">💬 WhatsApp Support</a></li>
         <li><a href="mailto:你的邮箱@example.com">✉️ 你的邮箱@example.com</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>快捷链接</h4>
+      <h4>Quick Links</h4>
       <div style="display:flex; gap:15px; font-size:12px;">
-        <a href="#">购买须知</a>
-        <a href="#">物流说明</a>
-        <a href="#">售后服务</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Returns & Refunds</a>
       </div>
     </div>
     <div class="footer-col" style="display:flex; align-items:center; gap:15px;">
@@ -279,17 +281,17 @@
         <img src="你的二维码图片链接.jpg" alt="QR">
       </div>
       <div>
-        <h4 style="margin: 0 0 5px 0;">添加客服</h4>
-        <p style="font-size: 12px; color: #888;">扫码咨询</p>
+        <h4 style="margin: 0 0 5px 0;">Customer Service</h4>
+        <p style="font-size: 12px; color: #888;">Scan to chat</p>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Kaleido. All rights reserved. 
+    © 2026 Kaleido Studio. All rights reserved.
   </div>
 </footer>
 
-<!-- 悬浮客服 -->
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/你的WhatsApp号码" target="_blank" class="whatsapp-float">
   <svg viewBox="0 0 32 32"><path d="M16 2a14 14 0 0 0-12.1 21l-2 7.3 7.5-2A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.2-4.4 1.2 1.2-4.3-.3-.4A11.5 11.5 0 1 1 16 27.5zm6.3-8.6c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.6 6.3 6.3 0 0 0 1.3 3.3 14.3 14.3 0 0 0 5.5 4.8c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg>
 </a>
@@ -304,15 +306,10 @@
     if (index >= totalSlides) currentSlide = 0;
     else if (index < 0) currentSlide = totalSlides - 1;
     else currentSlide = index;
-
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      dots[i].classList.remove('active');
-    });
+    slides.forEach((slide, i) => { slide.classList.remove('active'); dots[i].classList.remove('active'); });
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
   }
-
   setInterval(() => { changeSlide(currentSlide + 1); }, 4000);
 
   let time = 2 * 3600 + 15 * 60 + 30;
@@ -322,8 +319,7 @@
       let h = Math.floor(time / 3600);
       let m = Math.floor((time % 3600) / 60);
       let s = time % 60;
-      document.getElementById('timer').innerText = 
-        `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+      document.getElementById('timer').innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
     }
   }, 1000);
 </script>
