@@ -16,13 +16,17 @@
   .top-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
   .logo { font-size: 32px; font-weight: 900; color: #6a1b9a; font-style: italic; letter-spacing: 2px; }
   
-  .search-box { display: flex; width: 600px; border: 2px solid #6a1b9a; border-radius: 40px; overflow: hidden; }
+  .search-box { display: flex; width: 500px; border: 2px solid #6a1b9a; border-radius: 40px; overflow: hidden; }
   .search-box input { flex: 1; border: none; padding: 10px 20px; outline: none; font-size: 15px; }
   .search-box button { background: #6a1b9a; color: #fff; border: none; padding: 0 30px; font-size: 16px; font-weight: bold; cursor: pointer; }
   .search-box button:hover { background: #4a148c; }
 
-  .user-actions { display: flex; gap: 20px; font-size: 14px; color: #666; font-weight: 500; }
+  .user-actions { display: flex; align-items: center; gap: 20px; font-size: 14px; color: #666; font-weight: 500; }
   .user-actions a:hover { color: #6a1b9a; }
+  
+  /* 顶部 WhatsApp 图标样式 */
+  .wa-top-link { display: flex; align-items: center; gap: 5px; color: #25d366 !important; font-weight: bold; }
+  .wa-top-link svg { width: 18px; height: 18px; fill: #25d366; }
 
   /* --- Navbar --- */
   .nav-bar { background: #fff; border-bottom: 1px solid #eee; }
@@ -74,7 +78,7 @@
   .item-title { font-size: 15px; color: #333; margin: 8px 0; line-height: 1.4; height: 42px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .item-meta { display: flex; justify-content: space-between; font-size: 12px; color: #999; margin-bottom: 15px; margin-top: auto; }
   
-  /* Stripe Buy Button Style */
+  /* 购买按钮 */
   .buy-btn { display: block; width: 100%; text-align: center; background: #6a1b9a; color: #fff; padding: 12px; border-radius: 6px; font-size: 15px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
   .buy-btn:hover { background: #4a148c; }
 
@@ -88,7 +92,7 @@
   .qr-placeholder img { width: 100%; height: 100%; object-fit: cover; }
   .footer-bottom { text-align: center; padding-top: 15px; margin-top: 20px; border-top: 1px solid #333; font-size: 12px; color: #666; }
 
-  /* Floating WhatsApp */
+  /* 悬浮 WhatsApp */
   .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 100; transition: transform 0.2s; }
   .whatsapp-float:hover { transform: scale(1.1); }
   .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
@@ -109,7 +113,7 @@
 </head>
 <body>
 
-<!-- Header -->
+<!-- 头部区域 -->
 <header class="top-header">
   <div class="top-inner">
     <div class="logo">Kaleido.</div>
@@ -121,11 +125,16 @@
       <a href="#">Sign In</a>
       <a href="#">Orders</a>
       <a href="#">Cart (0)</a>
+      <!-- 顶部 WhatsApp 快速联系 -->
+      <a href="https://wa.me/你的WhatsApp号码" target="_blank" class="wa-top-link">
+        <svg viewBox="0 0 32 32"><path d="M16 2a14 14 0 0 0-12.1 21l-2 7.3 7.5-2A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.2-4.4 1.2 1.2-4.3-.3-.4A11.5 11.5 0 1 1 16 27.5zm6.3-8.6c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.6 6.3 6.3 0 0 0 1.3 3.3 14.3 14.3 0 0 0 5.5 4.8c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg>
+        WhatsApp
+      </a>
     </div>
   </div>
 </header>
 
-<!-- Navbar -->
+<!-- 导航条 -->
 <div class="nav-bar">
   <div class="nav-inner">
     <a href="#" class="active">Home</a>
@@ -137,7 +146,7 @@
   </div>
 </div>
 
-<!-- Hero Section -->
+<!-- 首屏大图 -->
 <div class="hero-section">
   <ul class="category-sidebar">
     <li>Classic Brass <span> > </span></li>
@@ -171,18 +180,18 @@
   </div>
 </div>
 
-<!-- Promo Bar -->
+<!-- 促销条 -->
 <div class="promo-bar">
   <h3>✨ Special Offer: $20 OFF on orders over $99!</h3>
   <div class="countdown">Ends in: <span id="timer">02:15:30</span></div>
 </div>
 
-<!-- Products -->
+<!-- 商品列表 -->
 <div class="product-section">
   <div class="product-section-title">Recommended for You</div>
   <div class="product-grid">
     
-    <!-- Product 1 -->
+    <!-- 商品 1 -->
     <div class="item-card">
       <div class="item-img-box">
         <span class="tag">BEST SELLER</span>
@@ -195,12 +204,12 @@
           <span>Sold 1.2k+</span>
           <span>99% Positive</span>
         </div>
-        <!-- 替换 href 为你的 Stripe 购买链接 -->
-        <a href="https://buy.stripe.com/你的Stripe测试或正式链接" target="_blank" class="buy-btn">Buy Now with Card</a>
+        <!-- 记得替换 href 里的 Stripe 链接 -->
+        <a href="https://buy.stripe.com/你的Stripe链接" target="_blank" class="buy-btn">Buy Now with Card</a>
       </div>
     </div>
 
-    <!-- Product 2 -->
+    <!-- 商品 2 -->
     <div class="item-card">
       <div class="item-img-box">
         <span class="tag">NEW</span>
@@ -217,7 +226,7 @@
       </div>
     </div>
 
-    <!-- Product 3 -->
+    <!-- 商品 3 -->
     <div class="item-card">
       <div class="item-img-box">
         <span class="tag">KIDS FAVORITE</span>
@@ -234,7 +243,7 @@
       </div>
     </div>
 
-    <!-- Product 4 -->
+    <!-- 商品 4 -->
     <div class="item-card">
       <div class="item-img-box">
         <span class="tag">DIY KIT</span>
@@ -254,7 +263,7 @@
   </div>
 </div>
 
-<!-- Footer -->
+<!-- 底部 -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-col">
@@ -291,7 +300,7 @@
   </div>
 </footer>
 
-<!-- Floating WhatsApp -->
+<!-- 右下角悬浮 WhatsApp -->
 <a href="https://wa.me/你的WhatsApp号码" target="_blank" class="whatsapp-float">
   <svg viewBox="0 0 32 32"><path d="M16 2a14 14 0 0 0-12.1 21l-2 7.3 7.5-2A14 14 0 1 0 16 2zm0 25.5a11.5 11.5 0 0 1-5.9-1.6l-.4-.2-4.4 1.2 1.2-4.3-.3-.4A11.5 11.5 0 1 1 16 27.5zm6.3-8.6c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2s-.8 1-.9 1.2c-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.6 6.3 6.3 0 0 0 1.3 3.3 14.3 14.3 0 0 0 5.5 4.8c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg>
 </a>
